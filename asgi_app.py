@@ -22,14 +22,9 @@ from mcp_server_main import app as mcp_server
 
 # Add a health check endpoint
 @mcp_server.custom_route("/health", methods=["GET"])
-async def health_check(request: Request) -> JSONResponse:
-    """Health check endpoint for monitoring"""
-    return JSONResponse({
-        "status": "healthy",
-        "service": "Yargı MCP Server",
-        "version": "0.1.0",
-        "tools_count": len(mcp_server._tool_manager._tools)
-    })
+async def health_check(request):
+    # Basit cevap ver, herhangi bir kontrol yapma
+    return JSONResponse({"status": "healthy"})
 
 @mcp_server.custom_route("/", methods=["GET"])
 async def root(request: Request) -> JSONResponse:
