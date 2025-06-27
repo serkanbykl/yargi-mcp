@@ -5,7 +5,7 @@
     "buildCommand": "pip install -r requirements.txt"
   },
   "deploy": {
-    "startCommand": "uvicorn asgi_app:app --host 0.0.0.0 --port ${PORT}",
+  "startCommand": "sh -c \"uvicorn asgi_app:app --host 0.0.0.0 --port $PORT\"",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 60,
     "restartPolicyType": "ON_FAILURE",
